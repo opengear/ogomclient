@@ -15,7 +15,7 @@ install_aliases()
 
 def ensure_auth(f):
     """
-    Ensures the client has a valid sesssion id (token).
+    Ensures the client has a valid session id (token).
     When a function is called and the client is not authenticated,
     it will try to authenticate and call the function again.
     """
@@ -52,7 +52,7 @@ class OperationsManagerClient:
 
         try:
             ramlfile = os.path.join(os.path.dirname(__file__),
-                'og-rest-api-specification-v2-2-ngcs.ramlll')
+                'og-rest-api-specification-v2-2-ngcs.raml')
             with open(ramlfile, 'r') as stream:
                 self.raml = yaml.load(re.sub('\\\/','/',re.sub(':\"',': \"',stream.read())))
         except Exception:
