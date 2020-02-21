@@ -1,0 +1,13 @@
+# ignore cache files
+*.pyc
+__pycache__/*
+
+# jupyter stuff
+.ipynb_checkpoints/*
+*.ipynb
+
+# ignore log files
+*.log
+
+# ignore editor files
+.vscode
