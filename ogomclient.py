@@ -54,10 +54,11 @@ class OperationsManagerClient:
             ramlfile = os.path.join(os.path.dirname(__file__),
                 'og-rest-api-specification-v2-2-ngcs.raml')
             with open(ramlfile, 'r') as stream:
-                self.raml = yaml.load(re.sub('\\\/','/',re.sub(':\"',': \"',stream.read())))
+                self.raml = yaml.load(re.sub('\\\/','/',re.sub(':\"',': \"',stream.read())),
+                    Loader=yaml.FullLoader)
         except Exception:
             r = self.s.get('http://ftp.opengear.com/download/api/operations_manager/og-rest-api-specification-v2-2-ngcs.raml')
-            self.raml = yaml.load(re.sub('\\\/','/',re.sub(':\"',': \"',r.text)))
+            self.raml = yaml.load(re.sub('\\\/','/',re.sub(':\"',': \"',r.text)), Loader=yaml.FullLoader)
 
         if not isinstance(self.raml, dict):
             raise RuntimeError("""
